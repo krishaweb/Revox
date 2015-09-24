@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %> | Revox</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= yield :styles %> 
+</head>
+<body>
+
+<%= yield %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
+<%= yield :scripts %>
+</body>
+</html>

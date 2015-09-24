@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: revox
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  #database: trading_world
+  # username: proj
+  # password: proj
+  host: <%= ENV['DB_HOST'] %>
+  pool: 5
+
+test:
+  <<: *default
+  database: revox_test
+
+development:
+  <<: *default  
+
+production:
+  <<: *default
+  database: revox
