@@ -28,6 +28,10 @@ gem 'spring',        group: :development
 
 gem "figaro", "~> 1.1.1"
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
