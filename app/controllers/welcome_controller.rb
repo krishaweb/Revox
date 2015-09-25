@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-      render text: 'Hi! I m nirav.'
+      render text: 'Hi! This is demo.'
   end
 
   def aboutus
