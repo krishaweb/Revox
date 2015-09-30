@@ -30,6 +30,8 @@ gem "figaro", "~> 1.1.1"
 gem "devise", "~> 3.2.4"
 gem "cancan", "~> 1.6.10"
 gem 'simple_form', '~> 3.1.0.rc1'
+gem "carrierwave", "~> 0.10.0"
+gem "mini_magick", "~> 3.7.0"
 
 group :production do
   gem 'rails_12factor'

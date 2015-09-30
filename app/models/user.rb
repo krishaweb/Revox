@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   validates :email, uniqueness: true, on: :create
+
+  mount_uploader :image, ImageUploader
 end

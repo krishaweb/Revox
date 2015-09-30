@@ -1,5 +1,5 @@
 class SessionsController < Devise::SessionsController
-layout 'login'
+layout 'login', only: [:new, :create]
 private
 
 end

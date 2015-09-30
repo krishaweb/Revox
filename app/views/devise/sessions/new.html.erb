@@ -37,7 +37,7 @@
           <!-- START Login Form -->
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), id: 'form-login', html: { class: 'p-t-15' }) do |f| %>
             
-              	<%= f.input :email, required: false, label: "Login", autofocus: true, placeholder: 'User Name'%>
+              	<%= f.input :email, required: false, label: "Login", autofocus: true, placeholder: 'Email Id'%>
            
               	<%= f.input :password, required: false, label: "Password", placeholder: 'Credentials' %>
         
