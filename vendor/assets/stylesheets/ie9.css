@@ -37,8 +37,7 @@
     width: 100%;
 }
 
-.calendar-container {
-    .grid{
+.calendar-container .grid{
+    
         overflow-x:hidden;
-    }
-}
+   }
