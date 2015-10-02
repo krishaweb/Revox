@@ -19,8 +19,6 @@ module Revox
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.to_prepare do
-        Devise::RegistrationsController.layout "register"
-    end
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end

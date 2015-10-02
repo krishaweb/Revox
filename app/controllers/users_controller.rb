@@ -1,35 +1,21 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only:[:index, :change_email]
-  before_action :find_user, only:[:change_email, :change_email_address]
+  before_action :authenticate_user!, only:[:index, :my_profile]
+  before_action :find_user, only:[:my_profile, :update_my_profile]
   
   def index
     
   end
 
-  def change_email
-     
+  def my_profile
   end
 
-  def change_email_address
-     @users.email  = params[:user][:new_email]
-     if @users.update! user_data
-        redirect_to change_email_path, notice: 'Email has been updated successfully. '
+  def update_my_profile
+     if @users.update user_data
+        redirect_to change_contact_path, notice: 'My Profile detail has been updated successfully.'
      else
-        render action: :change_email
+        render action: :my_profile
      end
-     
   end
-
-  # def contact_detail
-  # end
-
-  # def update_contact
-  #    if @users.update user_data
-  #       redirect_to change_contact_path, notice: 'Contact detail has been updated successfully.'
-  #    else
-  #       render action: :contact_detail
-  #    end
-  # end
 
   # def email_subscription
      

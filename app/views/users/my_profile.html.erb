@@ -1,0 +1,18 @@
+<%= content_for :title, "My Profile" %>
+<%= simple_form_for @users, url: {action: "update_my_profile"}, method: :put do |f| %> 
+<%= f.error_notification %>
+
+<%= f.input :fname, required: true, label: false %>
+
+<%= f.input :lname, required: true, label: false %>
+
+
+
+<%= f.input :email, required: true, label: false %>
+
+<%= image_tag(@users.image.url(:thumb)) %></p>
+
+<%= f.input :image, required: true, label: false %>
+
+<%= f.button :submit, "Save", class: "my-account-profile-save-btn" %>
+<% end %>

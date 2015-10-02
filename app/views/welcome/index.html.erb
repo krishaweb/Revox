@@ -3,6 +3,19 @@
 	<div class="container-fluid padding-25 sm-padding-10">
 		<div class="row">
 			<div class="col-md-6 col-xlg-5">
+			<% if flash.key?("notice") or flash.key?("alert") %>
+            <% if flash.key?("alert") %>
+              <div class="alert alert-danger">
+                <span>Error:</span><%= alert %>
+              </div>
+            <% end %>    
+            <% if flash.key?("notice") %>
+              <div class="alert alert-success">
+                <span>Success:</span>
+                <%= notice %>
+              </div>
+            <% end %>    
+          <% end %>
 				<p>Hi! This is Rovex website.</p>
 			</div>
 		</div>

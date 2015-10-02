@@ -1,11 +1,23 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
-  validates :email, uniqueness: true, on: :create
-
   mount_uploader :image, ImageUploader
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :lockable
+  
+  
+  validates :fname, presence: {:message => "Please enter your first name"}
+  validates :lname, presence: {:message => "Please enter your last name"}
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
+  validates :email, uniqueness: {:message => "This email is already used"}, on: :create
+  
+  # def active_for_authentication?
+  #   super && status
+  # end
+
+  def full_name
+    fullname = "#{lname}, #{fname}"
+  end
+  
 end

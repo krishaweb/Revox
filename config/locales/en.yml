@@ -20,4 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Please enter your email id"
+              taken: "This email id is already used"
+              invalid: "Please enter a valid email id"
+            password:
+              blank: "Please enter your password"
+              confirmation: "Password does not match"
+            password_confirmation:
+              blank: "Please enter a password confirmation"
+            fname:
+              blank: "Please enter your first name"
+            lname:
+              blank: "Please enter your last name"
