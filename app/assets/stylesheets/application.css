@@ -6,6 +6,7 @@
  *= require jquery.scrollbar
  *= require select2
  *= require switchery.min
+ *= require component
  *= require themes/calendar
  *= require jquery.dataTables
  *= require	dataTables.fixedColumns.min

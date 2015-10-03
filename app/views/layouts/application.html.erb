@@ -28,6 +28,8 @@
 </head>
 <% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
   <body class="fixed-header no-header">
+<% elsif(params[:controller] == 'welcome' && params[:action] == 'social') %>
+  <body class="fixed-header no-header">
 <% else %>
   <body class="fixed-header  dashboard ">
 <% end %>
@@ -47,6 +49,8 @@
       <%= yield %>
       <% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
 
+      <% elsif(params[:controller] == 'welcome' && params[:action] == 'social') %>
+      
       <% else %>
         <%= render "shared/footer" %>
       <% end %>

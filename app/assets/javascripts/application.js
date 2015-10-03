@@ -12,6 +12,9 @@
 //= require select2.min
 //= require classie
 //= require switchery.min
+//= require imagesloaded.pkgd.min
+//= require isotope.pkgd.min
+//= require stepsForm.js
 //= require jquery.ui.touch-punch.min
 //= require moment.min
 //= require moment-with-locales.min

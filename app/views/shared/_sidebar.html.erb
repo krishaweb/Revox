@@ -90,8 +90,12 @@
             <% end %>
           </li>
           <li class="">
-            <a href="#"><span class="title">Social</span></a>
-            <span class="icon-thumbnail "><i class="pg-social"></i></span>
+            <a href="<%= social_path %>"><span class="title">Social</span></a>
+            <% if params[:controller] == 'welcome' && params[:action] == 'social' %>
+              <span class="icon-thumbnail bg-success"><i class="pg-social"></i></span>
+            <% else %>
+              <span class="icon-thumbnail"><i class="pg-social"></i></span>
+            <% end %>
           </li>
           <li class="">
             <a href="<%= calendar_path %>"><span class="title">Calendar</span></a>
