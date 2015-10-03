@@ -26,17 +26,30 @@
   <%= yield :styles %> 
   <%= render "shared/script" %>
 </head>
-<body class="fixed-header  dashboard ">
+<% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
+  <body class="fixed-header no-header">
+<% else %>
+  <body class="fixed-header  dashboard ">
+<% end %>
   <%= render "shared/sidebar" %>
+<% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
+  <div class="page-container bg-white full-height">
+<% else %>
   <div class="page-container">
-    <%= render "shared/header" %>
+  <%= render "shared/header" %> 
+<% end %>
+  
     <% if(params[:controller] == 'welcome' && params[:action] == 'email') %>
       <div class="page-content-wrapper full-height">
     <% else %>
       <div class="page-content-wrapper">
     <% end %>
       <%= yield %>
-      <%= render "shared/footer" %>
+      <% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
+
+      <% else %>
+        <%= render "shared/footer" %>
+      <% end %>
     </div>
   </div>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  

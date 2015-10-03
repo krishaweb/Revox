@@ -12,6 +12,9 @@
 //= require select2.min
 //= require classie
 //= require switchery.min
+//= require jquery.ui.touch-punch.min
+//= require moment.min
+//= require moment-with-locales.min
 //= require jquery.dataTables.min
 //= require dataTables.tableTools.min
 //= require jquery-datatable-bootstrap
@@ -33,6 +36,8 @@
 //= require skycons
 //= require bootstrap-datepicker
 //= require pages.min
+//= require pages.calendar.min
+//= require calendar.js
 //= require datatables
 //= require dashboard
 //= require scripts
