@@ -67,6 +67,17 @@
               <span class="icon-thumbnail "><i class="pg-grid"></i></span>
             <% end %>
           </li>
+        <li class="">
+            <a href="<%= users_path %>" class="detailed">
+              <span class="title">User Management</span>
+              <span class="details"></span>
+            </a>
+            <% if params[:controller] == 'users' && params[:action] == 'index' %>
+              <span class="icon-thumbnail bg-success"><i class="pg-grid"></i></span>
+            <% else %>
+              <span class="icon-thumbnail "><i class="pg-grid"></i></span>
+            <% end %>
+          </li>
           <li class="">
             <a href="<%= email_path %>" class="detailed">
               <span class="title">Email</span>

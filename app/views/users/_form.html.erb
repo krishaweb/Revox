@@ -1,0 +1,48 @@
+<%= simple_form_for(@users,html: {:multipart => true}) do |f| %> 
+<%= f.error_notification %>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="form-group form-group-default required">
+			<label>First name</label>
+			<%= f.input_field :fname, required: false, label: false, class: 'form-control'%>
+			<span class="help-block"><%= @users.errors[:fname].first %></span>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="form-group form-group-default required">
+			<label>Last name</label>
+			<%= f.input_field :lname, required: false, label: false, class: 'form-control'%>
+			<span class="help-block"><%= @users.errors[:lname].first %></span>
+		</div>
+	</div>
+</div>
+<div class="form-group form-group-default required">
+	<label>Email</label>
+	<%= f.input_field :email, required: false, label: false, class: 'form-control'%>
+	<span class="help-block"><%= @users.errors[:email].first %></span>
+</div>
+<div class="form-group form-group-default">
+	<% if @users.image? %>
+		<label>Image</label>
+		<p><%= link_to image_tag(@users.image.url(:thumb)), @users.image.url, target: :blank %></p>
+		<label>
+			<%= f.check_box :remove_image, as: :boolean, input_html: { class: 'form-control', value: '1' } %> Remove image?
+		</label>
+	<% end %>
+	<%= f.input :image, required: true, label: false %>
+	<%= f.hidden_field :image_cache %>
+</div>
+<div class="form-group form-group-default">
+	<label>Password</label>
+	<%= f.input_field :password, as: :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, label: false, class: "form-control" %>
+	<span class="help-block"><%= @users.errors[:password].first %></span>
+</div>
+<div class="form-group form-group-default">
+	<label>Confirm Password</label>
+	<%= f.input_field :password_confirmation, as: :password, required: false, label: false, class: "form-control" %>
+	<span class="help-block"><%= @users.errors[:password_confirmation].first %></span>
+</div>
+
+<%= f.button :submit, "Save", class: "btn btn-primary btn-cons m-t-10" %>
+<%= link_to "Cancel", users_path, class: 'btn' %>
+<% end %>

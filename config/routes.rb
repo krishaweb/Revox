@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'email' => 'welcome#email'
   get 'social' => 'welcome#social'
   get 'calendar' => 'welcome#calendar'
-
+  resources :users
+  post 'user' => 'users#add_user', as: :add_user
   # get 'my-profile' => 'users#my_profile', as: :my_profile
   # put 'my-profile' => 'users#update_my_profile'
   

@@ -18,13 +18,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.smtp_settings = {
     :port =>           '587',
-    :address =>        'smtp.mandrillapp.com',
-    :user_name =>      ENV['MANDRILL_USERNAME'],
-    :password =>       ENV['MANDRILL_APIKEY'],
-    :domain =>         'heroku.com',
+    :address =>        'smtp.gmail.com',
+    :user_name =>      'nicolecross1579@gmail.com',
+    :password =>       'krisha1234',
     :authentication => :plain
   }
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries    = true
   config.action_mailer.raise_delivery_errors = true
   # Print deprecation notices to the Rails logger.
