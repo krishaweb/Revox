@@ -21,7 +21,7 @@ $('#form_user').bind 'ajax:complete', (e, res)->
   	else
   		$('span#password_confirmation_error').html ' '
   else if res.status == 201
-    alert "Thankyou for subscribing to our newsletter."
+    alert "User has been saved successfully."
     $('#user_fname').val ''
     $('#user_lname').val ''
     $('#user_email').val ''
