@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   before_action :find_user, only:[:my_profile, :update_my_profile, :edit, :update, :destroy]
   
   def index
-    @row = User.all
+    if params[:q].blank?
+      @row = User.all
+    else
+      @row = User.where("fname ILIKE ? or lname ILIKE? or email ILIKE?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+    end
   end
 
   def new
@@ -72,7 +76,11 @@ class UsersController < ApplicationController
   private
 
   def user_data
-    params.require(:user).permit!
+    if params[:action] == "update" and params[:user] and params[:user][:password].blank?
+      params.require(:user).permit.not(:password)
+    else
+      params.require(:user).permit!
+    end
   end
   def find_user
    @users = User.find params[:id]

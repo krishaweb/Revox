@@ -50,3 +50,5 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
     window.location.reload()
   else
     alert "unknown error"
+
+

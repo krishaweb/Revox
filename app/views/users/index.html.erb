@@ -21,12 +21,36 @@
     <% end %>    
   <% end %>
       <div class="panel-heading">
-        <div class="panel-title">Users
-        </div>
+        <div class="col-xs-12">
+          <div class="row">
+          <div class="col-xs-8">
+            <div class="panel-title">Users</div>
+          </div>
+        <div class="col-xs-4">
         <div class="pull-right">
           <div class="col-xs-12">
-            <%= link_to ("<i class='fa fa-plus'></i> Add User").html_safe, new_user_path, remote: true, class: "btn btn-primary btn-cons btn-adduser" %>
+          <div class="row">
+          <div class="col-xs-7">
+            <%= form_tag url_for ,method: :get, class: 'advance-search', id: :filter_form do %>
+            <div class="input-group">
+           
+             <%= search_field_tag :q, params[:q], class: 'form-control pull-right', placeholder: 'Search', id: 'search-table' %>
+              <span class="input-group-addon">
+
+                <a href="javascript:;" class="user-search" onclick="$(this).closest('form').submit();"><i class="pg-search"></i></a>
+              </span>  
+                      
+            </div>   
+            <% end %>
           </div>
+          <div class="col-xs-5">
+            <%= link_to ("<i class='fa fa-plus'></i> Add User").html_safe, new_user_path, remote: true, class: "btn btn-primary btn-cons btn-adduser" %>
+          </div>  
+          </div>  
+          </div>                
+        </div>
+        </div>
+        </div>
         </div>
         <div class="clearfix"></div>
       </div>
