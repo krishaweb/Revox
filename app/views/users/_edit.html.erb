@@ -1,0 +1,87 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header clearfix ">
+    
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+      </button>
+
+      <h4 class="p-b-5"><span class="semi-bold">Edit</span> User</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for @users, remote: true, format: :json, html: { :multipart => true, id: 'form_user'} do |f| %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>First Name</label>
+                        <%= f.text_field :fname, label: false, class: 'form-control' %>
+                        <span class="help-block" id="fname_error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Last Name</label>
+                        <%= f.text_field :lname, label: false, class: 'form-control' %>
+                        <span class="help-block" id="lname_error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Email</label>
+                        <%= f.text_field :email, label: false, class: 'form-control' %>
+                        <span class="help-block" id="email_error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Image</label>
+                        <%= f.file_field :image, label: false, class: 'form-control' %>
+                        <%= f.hidden_field :image_cache %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Password</label>
+                        <%= f.password_field :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", label: false, class: "form-control" %>
+                        <span class="help-block" id="password_error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>Confirm Password</label>
+                        <%= f.password_field :password_confirmation, label: false, class: "form-control" %>
+                        <span class="help-block" id="password_confirmation_error"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 no-padding">
+                      <div class="checkbox ">
+                          <%= f.check_box :status %> 
+                          <%= f.label :status, "status" %>
+                      </div>   
+                    </div>
+                  </div>
+              
+              <div class="modal-footer">
+                <%= f.submit 'Update', :class => 'btn btn-primary  btn-cons' %>
+                <%= link_to "Close", users_path, class: 'btn btn-cons' %>
+              </div>
+              <% end %>
+              
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+     

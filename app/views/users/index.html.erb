@@ -1,175 +1,72 @@
 <%= content_for :title, "Users" %>
 <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header clearfix ">
-              
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
-                </button>
 
-                <h4 class="p-b-5"><span class="semi-bold">New</span> User</h4>
-              </div>
-              <div class="modal-body">
-                
-                <%= form_for :user, url: add_user_path(format: :json), remote: true, html: { :multipart => true, id: :form_user} do |f| %>
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>First Name</label>
-                        <%= f.text_field :fname, label: false, class: 'form-control' %>
-                        <span class="help-block" id="fname_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Last Name</label>
-                        <%= f.text_field :lname, label: false, class: 'form-control' %>
-                        <span class="help-block" id="lname_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Email</label>
-                        <%= f.text_field :email, label: false, class: 'form-control' %>
-                        <span class="help-block" id="email_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Image</label>
-                        <%= f.file_field :image, label: false, class: 'form-control' %>
-                        <%= f.hidden_field :image_cache %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Password</label>
-                        <%= f.password_field :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", label: false, class: "form-control" %>
-                        <span class="help-block" id="password_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Confirm Password</label>
-                        <%= f.password_field :password_confirmation, label: false, class: "form-control" %>
-                        <span class="help-block" id="password_confirmation_error"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 no-padding">
-                      <div class="checkbox ">
-                          <%= f.check_box :status %> 
-                          <%= f.label :status, "status" %>
-                      </div>   
-                    </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <%= f.submit 'Add', :class => 'btn btn-primary  btn-cons' %>
-                <%= link_to "Close", users_path, class: 'btn btn-cons' %>
-              </div>
-              <% end %>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
+</div>
+<div class="content">
+  <!-- START CONTAINER FLUID -->
+  <div class="container-fluid container-fixed-lg">
+    <!-- START PANEL -->
+    <div class="panel panel-transparent">
+    <% if flash.key?("notice") or flash.key?("alert") %>
+    <% if flash.key?("alert") %>
+      <div class="alert alert-danger">
+        <span>Error:</span><%= alert %>
+      </div>
+    <% end %>    
+    <% if flash.key?("notice") %>
+      <div class="alert alert-success">
+        <span>Success:</span>
+        <%= notice %>
+      </div>
+    <% end %>    
+  <% end %>
+      <div class="panel-heading">
+        <div class="panel-title">Users
         </div>
-
-
-
-        <div class="content">
-          <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg">
-            <!-- START PANEL -->
-            <div class="panel panel-transparent">
-            <% if flash.key?("notice") or flash.key?("alert") %>
-            <% if flash.key?("alert") %>
-              <div class="alert alert-danger">
-                <span>Error:</span><%= alert %>
-              </div>
-            <% end %>    
-            <% if flash.key?("notice") %>
-              <div class="alert alert-success">
-                <span>Success:</span>
-                <%= notice %>
-              </div>
-            <% end %>    
-          <% end %>
-              <div class="panel-heading">
-                <div class="panel-title">Users
-                </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="panel-body">
-              <% if !@row.blank? %>
-                <table class="table table-hover demo-table-dynamic" id="tableWithDynamicRows">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Image</th>
-                      <th>Email</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <% @row.each do |u| %>
-                    <tr>
-                      <td class="v-align-middle">
-                        <p><%= u.fname.titleize %> <%= u.lname.titleize %></p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p><%= image_tag u.image.url(:thumb) %></p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p><%= u.email %></p>
-                      </td>
-                      <td class="v-align-middle">
-                        <p>
-                        <%= link_to "Edit", edit_user_path(u), class: 'btn btn-xs btn-primary' %>
-                        <%= link_to "Delete", user_path(u), class: 'btn btn-xs btn-danger', method: :delete, 'data-confirm'=>"Are you sure?" %></p>
-                      </td>
-                    </tr>
-                  <% end %>
-                  </tbody>
-                </table>
-              <% else %>
-                <p class="alert alert-warning">No matching results found</p>
-              <% end %>
-              </div>
-            </div>
-            <!-- END PANEL -->
-          </div>
-          <!-- END CONTAINER FLUID -->
-          <!-- START CONTAINER FLUID -->    
-        </div>
-        <div class="container-fluid container-fixed-lg footer">
-          <div class="copyright sm-text-center">
-            <p class="small no-margin pull-left sm-pull-reset">
-              <span class="hint-text">Copyright © 2014 </span>
-              <span class="font-montserrat">REVOX</span>.
-              <span class="hint-text">All rights reserved. </span>
-              <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-            </p>
-            <p class="small no-margin pull-right sm-pull-reset">
-              <a href="#">Hand-crafted</a> <span class="hint-text">&amp; Made with Love ®</span>
-            </p>
-            <div class="clearfix"></div>
+        <div class="pull-right">
+          <div class="col-xs-12">
+            <%= link_to ("<i class='fa fa-plus'></i> Add User").html_safe, new_user_path, remote: true, class: "btn btn-primary btn-cons btn-adduser" %>
           </div>
         </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="panel-body">
+      <% if !@row.blank? %>
+        <table class="table table-hover demo-table-dynamic" id="tableWithDynamicRows">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="user-index">
+            <%= render "index" %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="alert alert-warning">No matching results found</p>
+      <% end %>
+      </div>
+    </div>
+    <!-- END PANEL -->
+  </div>
+  <!-- END CONTAINER FLUID -->
+  <!-- START CONTAINER FLUID -->    
+</div>
+<div class="container-fluid container-fixed-lg footer">
+  <div class="copyright sm-text-center">
+    <p class="small no-margin pull-left sm-pull-reset">
+      <span class="hint-text">Copyright © 2014 </span>
+      <span class="font-montserrat">REVOX</span>.
+      <span class="hint-text">All rights reserved. </span>
+      <span class="sm-block"><a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+    </p>
+    <p class="small no-margin pull-right sm-pull-reset">
+      <a href="#">Hand-crafted</a> <span class="hint-text">&amp; Made with Love ®</span>
+    </p>
+    <div class="clearfix"></div>
+  </div>
+</div>
+

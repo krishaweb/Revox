@@ -13,29 +13,39 @@ class UsersController < ApplicationController
   def create
     @users = User.new user_data
     if @users.save
-      redirect_to users_path, notice: 'User has been saved successfully.'
-    else
-      render action: :new
-    end
-  end
-
-  def add_user
-    @users = User.new user_data
-    if @users.save
-      head :created
+      if remotipart_submitted? 
+        head :created
+      else
+        head :created
+      end
     else
       render json: @users.errors, status: :unprocessable_entity
     end
   end
+
+  # def add_user
+  #   @users = User.new user_data
+  #   if @users.save
+  #     if remotipart_submitted? 
+  #       head :created
+  #     end
+  #   else
+  #     render json: @users.errors, status: :unprocessable_entity
+  #   end
+  # end
   
   def edit
   end
 
   def update
     if @users.update user_data
-      redirect_to users_path, notice: 'User has been updated successfully. '
+      if remotipart_submitted? 
+        head :created
+      else
+        head :created
+      end
     else
-      render action: :edit
+      render json: @users.errors, status: :unprocessable_entity
     end
   end
 

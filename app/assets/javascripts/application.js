@@ -2,6 +2,7 @@
 //= require jquery
 //= require modernizr.custom
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require bootstrap.min
 //= require jquery-easy
 //= require jquery.unveil.min

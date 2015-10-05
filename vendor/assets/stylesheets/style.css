@@ -6,3 +6,7 @@
 span.help-block{
 	color: #933432;
 }
+.panel-heading a.btn-adduser{
+	opacity: 1;
+	color: #FFF !important;
+}

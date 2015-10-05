@@ -1,0 +1,18 @@
+<% @row.each do |u| %>
+  <tr>
+    <td class="v-align-middle">
+      <p><%= u.fname.titleize %> <%= u.lname.titleize %></p>
+    </td>
+    <td class="v-align-middle">
+      <p><%= image_tag u.image.url(:thumb) %></p>
+    </td>
+    <td class="v-align-middle">
+      <p><%= u.email %></p>
+    </td>
+    <td class="v-align-middle">
+      <p>
+      <%= link_to "Edit", edit_user_path(u), remote: true, class: "btn btn-xs btn-primary" %>
+      <%= link_to "Delete", user_path(u), class: 'btn btn-xs btn-danger', method: :delete, 'data-confirm'=>"Are you sure?" %></p>
+    </td>
+  </tr>
+<% end %>
