@@ -10,3 +10,12 @@ span.help-block{
 	opacity: 1;
 	color: #FFF !important;
 }
+.register-container.full-height{
+	height: auto !important;
+}
+.register-container .col-sm-12.col-sm-height{
+	padding-top: 100px;
+}
+.register-container.m-b-10{
+	padding-top: 50px;
+}
