@@ -79,7 +79,11 @@
             <% end %>
           </li>
         <% end %>
+        <% if user_signed_in? %>
           <li class="">
+        <% else %>
+          <li class="m-t-30 open">
+        <% end %>
             <a href="<%= email_path %>" class="detailed">
               <span class="title">Email</span>
               <span class="details"></span>
