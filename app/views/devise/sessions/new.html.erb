@@ -55,7 +55,8 @@
             <!-- END Form Control-->
             <%= f.button :submit, "Sign in", class: 'btn btn-primary btn-cons m-t-10' %>
             <p></p>
-            <%= render "devise/shared/links" %>
+            <%= link_to "Sign up", new_registration_path(resource_name) %>
+            
           <% end %>
           <!--END Login Form-->
           <div class="pull-bottom sm-pull-bottom">
