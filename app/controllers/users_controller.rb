@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 
   def user_data
     if params[:action] == "update" and params[:user] and params[:user][:password].blank?
-      params.require(:user).permit.not(:password)
+      params.require(:user).permit(:fname, :lname, :email, :image, :image_cache)
     else
       params.require(:user).permit!
     end

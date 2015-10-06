@@ -170,7 +170,11 @@
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="/assets/<%= current_user.image.url() %>" alt="" data-src="/assets/<%= current_user.image.url() %>" data-src-retina="/assets/<%= current_user.image.url() %>" width="32" height="32">
+               <% if current_user.image? %> 
+                  <img src="<%= current_user.image.url() %>" alt="" data-src="<%= current_user.image.url() %>" data-src-retina="<%= current_user.image.url() %>" width="32" height="32">
+                <% else %>
+                  <img src="/assets/<%= current_user.image.url() %>" alt="" data-src="/assets/<%= current_user.image.url() %>" data-src-retina="/assets/<%= current_user.image.url() %>" width="32" height="32">
+                <% end %>
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
