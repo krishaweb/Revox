@@ -1,22 +1,22 @@
 $(document).on 'ajax:complete', '#form_user', (e, res)->
   if res.status == 422
-  	if res.responseJSON['fname']
+  	if res.responseJSON && res.responseJSON['fname']
   		$('span#fname_error').html res.responseJSON['fname'][0]
   	else
   		$('span#fname_error').html ' '
-  	if res.responseJSON['lname']
+  	if res.responseJSON && res.responseJSON['lname']
   		$('span#lname_error').html res.responseJSON['lname'][0]
   	else
   		$('span#lname_error').html ' '
-  	if res.responseJSON['email']
+  	if res.responseJSON && res.responseJSON['email']
   		$('span#email_error').html res.responseJSON['email'][0]
   	else
   		$('span#email_error').html ' '
-  	if res.responseJSON['password']	
+  	if res.responseJSON && res.responseJSON['password']	
   		$('span#password_error').html res.responseJSON['password'][0]
   	else
   		$('span#password_error').html ' '
-  	if res.responseJSON['password_confirmation']	
+  	if res.responseJSON && res.responseJSON['password_confirmation']	
   		$('span#password_confirmation_error').html res.responseJSON['password_confirmation'][0]
   	else
   		$('span#password_confirmation_error').html ' '
@@ -49,6 +49,5 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
     $("#addNewAppModal").modal 'hide'
     window.location.reload()
   else
-    alert "unknown error"
 
 
