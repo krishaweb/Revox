@@ -61,17 +61,6 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
    config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'http://revoxe.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name => '46289debfdbf85b2a',
-    :password => '1c98611914c288',
-    :address => 'mailtrap.io',
-    :domain => 'mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
-  }
-
-  
   # config.action_mailer.smtp_settings = {
   #   :port =>           '587',
   #   :address =>        'smtp.sendgrid.com',
@@ -80,7 +69,7 @@ Rails.application.configure do
   #   :domain =>         'heroku.com',
   #   :authentication => :plain
   # }
-  # config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :sparkpost
   config.action_mailer.perform_deliveries    = true
   config.action_mailer.raise_delivery_errors = true
 
