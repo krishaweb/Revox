@@ -49,5 +49,3 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
     $("#addNewAppModal").modal 'hide'
     window.location.reload()
   else
-
-

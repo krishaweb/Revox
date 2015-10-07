@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   
   def index
     if params[:q].blank?
-      @row = User.all
+      @row = User.where('id <> ?', current_user.id)
     else
-      @row = User.where("fname ILIKE ? or lname ILIKE? or email ILIKE?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+      @row = User.where('id <> ?', current_user.id).where("fname ILIKE ? or lname ILIKE? or email ILIKE?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
     end
   end
 
