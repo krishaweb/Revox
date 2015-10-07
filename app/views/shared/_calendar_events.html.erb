@@ -1,105 +1,88 @@
-<% content_for :title, "Register" %>
-<div class="register-container full-height sm-p-t-30">
-      <div class="container-sm-height full-height">
-        <div class="row row-sm-height">
-          <div class="col-sm-12 col-sm-height col-middle">
-            <img src="<%= image_path('logo.png') %>" alt="logo" data-src="<%= image_path('logo.png') %>" data-src-retina="<%= image_path('logo.png') %>" width="78" height="22">
-            <h3>Pages makes it easy to enjoy what matters the most in your life</h3>
-            <p>
-              <small>
-        Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a>
-    </small>
-            </p>
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), id: 'form-register', html: {multipart: true}, html: { class: 'p-t-15' }) do |f| %>
-            <%= f.error_notification %>
-            
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group form-group-default">
-                    <label>First Name</label>
-                    <%= f.input_field :fname, required: false, label: false, autofocus: true, placeholder: 'John', class: 'form-control'%>
-                    <span class="help-block"><%= @user.errors[:fname].first %></span>
+<!-- START Calendar Events Form -->
+    <div class="quickview-wrapper calendar-event" id="calendar-event">
+      <div class="view-port clearfix" id="eventFormController">
+        <div class="view bg-white">
+          <div class="scrollable">
+            <div class="p-l-30 p-r-30 p-t-20">
+              <a class="pg-close text-master link pull-right" data-toggle="quickview" data-toggle-element="#calendar-event" href="#"></a>
+              <h4 id="event-date">&amp;</h4>
+              <div class="m-b-20">
+                <i class="fa fa-clock-o"></i>
+                <span id="lblfromTime"></span> to
+                <span id="lbltoTime"></span>
+              </div>
+            </div>
+            <div class="p-t-15">
+              <input id="eventIndex" name="eventIndex" type="hidden">
+              <div class="form-group-attached">
+                <div class="form-group form-group-default ">
+                  <label>Title</label>
+                  <input type="text" class="form-control" id="txtEventName" name="" placeholder="event name">
+                </div>
+                <div class="row clearfix">
+                  <div class="col-sm-9">
+                    <div class="form-group form-group-default">
+                      <label>Location</label>
+                      <input type="text" class="form-control" id="txtEventLocation" placeholder="name of place" name="">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group form-group-default">
+                      <label>Code</label>
+                      <input type="text" class="form-control" id="txtEventCode" name="lastName">
+                    </div>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="row clearfix">
                   <div class="form-group form-group-default">
-                    <label>Last Names</label>
-                    <%= f.input_field :lname, required: false, label: false, placeholder: 'Smith', class: 'form-control'%>
-                    <span class="help-block"><%= @user.errors[:lname].first %></span>
+                    <label>Note</label>
+                    <textarea class="form-control" placeholder="description" id="txtEventDesc"></textarea>
+                  </div>
+                </div>
+                <div class="row clearfix cursor">
+                  <div class="form-group form-group-default" data-navigate="view" data-view-port="#eventFormController" data-view-animation="push-parrallax">
+                    <label>Alerts</label>
+                    <div class="p-t-10">
+                      <span class="pull-right p-r-10 p-b-5"><i class="pg-arrow_right"></i></span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group form-group-default">
-                    <label>Email</label>
-                    <%= f.input_field :email, required: false, label: false, placeholder: 'We will send loging details to you', class: 'form-control'%>
-                    <span class="help-block"><%= @user.errors[:email].first %></span>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group form-group-default">
-                    <label>Password</label>
-                    <%= f.input_field :password, as: :password, required: false, label: false, placeholder: 'Minimum of 8 Charactors', class: 'form-control'%>
-                    <span class="help-block"><%= @user.errors[:password].first %></span>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group form-group-default">
-                    <label>Confirm Password</label>
-                    <%= f.input_field :password_confirmation, as: :password, required: false, label: false, placeholder: 'Minimum of 8 Charactors', class: 'form-control'%>
-                    <span class="help-block"><%= @user.errors[:password_confirmation].first %></span>
-                  </div>
-                </div>
-              </div>
-               <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group form-group-default">
-                    <label>Upload Image*</label>
-                    <%= f.file_field :image, required: true, label: false %>
-                    <%= f.hidden_field :image_cache %>
-                    <span class="help-block"><%= @user.errors[:image].first %></span>
-                  </div>
-                </div>
-              </div>   
-              <div class="row m-t-10">
-                <div class="col-md-6">
-                  <p>I agree to the <a href="#" class="text-info small">Pages Terms</a> and <a href="#" class="text-info small">Privacy</a>.</p>
-                </div>
-                <div class="col-md-6 text-right">
-                  <a href="#" class="text-info small">Help? Contact Support</a>
-                </div>
-              </div>
-              <%= f.button :submit, "Create a new account", class: 'btn btn-primary btn-cons m-t-10' %>
-              <p></p>
-              <a href="<%= new_user_session_path %>"> Sign In </a>
-            <% end %>
+            </div>
+            <div class="p-l-30 p-r-30 p-t-30">
+              <button id="eventSave" class="btn btn-warning btn-cons">Save Event</button>
+              <button id="eventDelete" class="btn btn-white"><i class="fa fa-trash-o"></i>
+              </button>
+            </div>
           </div>
         </div>
+        <div class="view bg-white">
+          <div class="navbar navbar-default navbar-sm">
+            <div class="navbar-inner">
+              <a href="javascript:;" class="inline action p-l-10 link text-master" data-navigate="view" data-view-port="#eventFormController" data-view-animation="push-parrallax">
+                <i class="pg-arrow_left"></i>
+              </a>
+              <div class="view-heading">
+                <span class="font-montserrat text-uppercase fs-13">Alerts</span>
+              </div>
+              <a href="#" class="inline action p-r-10 pull-right link text-master">
+                <i class="pg-search"></i>
+              </a>
+            </div>
+          </div>
+          <p class="p-l-30 p-r-30 p-t-30"> This is a Demo</p>
+        </div>
       </div>
     </div>
-    <div class=" full-width">
-      <div class="register-container m-b-10 clearfix">
-        <div class="inline pull-left">
-          <img src="<%= image_path('demo/pages_icon.png') %>" alt="" class="m-t-5 " data-src="<%= image_path('demo/pages_icon.png') %>" data-src-retina="<%= image_path('demo/pages_icon.png') %>" width="60" height="60">
-        </div>
-        <div class="col-md-10 m-t-15">
-          <p class="hinted-text small inline ">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>
-        </div>
-      </div>
-    </div>
-    <!-- START OVERLAY -->
+    <!-- END Calendar Events Form -->
+
     <div class="overlay hide" data-pages="search">
       <!-- BEGIN Overlay Content !-->
       <div class="overlay-content has-results m-t-20">
         <!-- BEGIN Overlay Header !-->
         <div class="container-fluid">
           <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="<%= image_path('logo.png') %>" alt="logo" data-src="<%= image_path('logo.png') %>" data-src-retina="<%= image_path('logo.png') %>" width="78" height="22">
+          <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
           <!-- END Overlay Logo !-->
           <!-- BEGIN Overlay Close !-->
           <a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -139,7 +122,7 @@
                   <!-- BEGIN Search Result Item Thumbnail !-->
                   <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
                     <div>
-                      <img width="50" height="50" src="<%= image_path('profiles/avatar.jpg')%>" data-src="<%= image_path('profiles/avatar.jpg')%>" data-src-retina="<%= image_path('profiles/avatar.jpg')%>" alt="">
+                      <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
                     </div>
                   </div>
                   <!-- END Search Result Item Thumbnail !-->

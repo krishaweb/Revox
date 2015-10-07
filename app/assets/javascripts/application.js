@@ -13,12 +13,15 @@
 //= require select2.min
 //= require classie
 //= require switchery.min
+//= require bootstrap3-wysihtml5.all.min
+//= require jquery.menuclipper
 //= require imagesloaded.pkgd.min
 //= require isotope.pkgd.min
 //= require stepsForm.js
 //= require jquery.ui.touch-punch.min
 //= require moment.min
 //= require moment-with-locales.min
+//= require hammer.min
 //= require jquery.dataTables.min
 //= require dataTables.tableTools.min
 //= require jquery-datatable-bootstrap
@@ -35,15 +38,13 @@
 //= require hammer
 //= require jquery.mousewheel
 //= require mapplic
-//= require rickshaw.min
 //= require jquery.sparkline.min
 //= require skycons
 //= require bootstrap-datepicker
 //= require pages.min
-//= require pages.calendar.min
-//= require calendar.js
+//= require pages.email
+//= require pages.social.min
 //= require datatables
-//= require dashboard
 //= require scripts
 //= require common
 

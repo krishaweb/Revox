@@ -1,31 +1,36 @@
 <%= content_for :title, "Forgot your password?" %>
-<div class="content">
-	<div class="container-fluid container-fixed-lg">
-		<div class="row">
-			<div class="col-md-6">
-				<!-- START PANEL -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<div class="panel-title">
-							Forgot your password?
-						</div>
-					</div>
-					<div class="panel-body">
-						<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  							<%= f.error_notification %>
-  							<div class="form-group form-group-default required">
+<div class="register-container full-height sm-p-t-30">
+	<div class="container-sm-height full-height">
+		<div class="row row-sm-height">
+			<div class="col-sm-12 col-sm-height col-middle">
+				<img src="<%= image_path('logo.png') %>" alt="logo" data-src="<%= image_path('logo.png') %>" data-src-retina="<%= image_path('logo.png') %>" width="78" height="22">
+				<h3>Forgot your password?</h3>     
+				<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+					<%= f.error_notification %>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group form-group-default">
 								<label>Email</label>
 								<%= f.input_field :email, required: true, autofocus: true, label: false, class: 'form-control'%>
 								<span class="help-block"><%= @user.errors[:email].first %></span>
 							</div>
-							<%= f.button :submit, "Send me reset password instructions", class: 'btn btn-primary btn-cons m-t-10' %>
-						<% end %>
-						<%= render "devise/shared/links" %>
+						</div>
 					</div>
-				</div>
-				<!-- END PANEL -->
+					<%= f.button :submit, "Send me reset password instructions", class: 'btn btn-primary btn-cons m-t-10' %>
+				<% end %>
+				<a href="<%= new_user_session_path %>"> Sign In </a><br />
+				<%= link_to "Sign up", new_registration_path(resource_name) %>
 			</div>
+        </div>
+    </div>
+</div>
+<div class=" full-width">
+	<div class="register-container m-b-10 clearfix">
+		<div class="inline pull-left">
+			<img src="<%= image_path('demo/pages_icon.png') %>" alt="" class="m-t-5 " data-src="<%= image_path('demo/pages_icon.png') %>" data-src-retina="<%= image_path('demo/pages_icon.png') %>" width="60" height="60">
+		</div>
+		<div class="col-md-10 m-t-15">
+			<p class="hinted-text small inline ">No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials.</p>
 		</div>
 	</div>
-</div>  
-
+</div>

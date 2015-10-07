@@ -21,7 +21,7 @@ module Revox
     # config.i18n.default_locale = :de
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.to_prepare do            
-      Devise::PasswordsController.layout "application" 
+      Devise::PasswordsController.layout "register" 
       Devise::ConfirmationsController.layout "application" 
       Devise::UnlocksController.layout "application"     
     end

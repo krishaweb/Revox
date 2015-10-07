@@ -6,6 +6,8 @@
  *= require jquery.scrollbar
  *= require select2
  *= require switchery.min
+ *= require bootstrap3-wysihtml5.min.css
+ *= require jquery.menuclipper
  *= require component
  *= require themes/calendar
  *= require jquery.dataTables
@@ -13,7 +15,6 @@
  *= require datatables.responsive
  *= require nv.d3.min
  *= require mapplic
- *= require rickshaw.min
  *= require datepicker3
  *= require MetroJs
  *= require pages-icons

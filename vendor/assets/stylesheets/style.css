@@ -19,3 +19,6 @@ span.help-block{
 .register-container.m-b-10{
 	padding-top: 50px;
 }
+.header .dropdown.pull-right .dropdown-menu > li > a{
+	white-space: inherit;
+}

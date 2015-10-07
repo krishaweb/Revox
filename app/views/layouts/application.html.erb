@@ -17,6 +17,9 @@
   <meta content="" name="author" />
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <% if(params[:controller] == 'welcome' && params[:action] == 'social') %>
+    <%= stylesheet_link_tag  'simple.css' %>
+  <% end %>
   <!--[if lte IE 9]><!-->
       <%= stylesheet_link_tag  'ie9.css' %>
   <!--<![endif]-->
@@ -26,7 +29,9 @@
   <%= yield :styles %> 
   <%= render "shared/script" %>
 </head>
-<% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
+<% if(params[:controller] == 'welcome' && params[:action] == 'email') %>
+  <body class="fixed-header   ">
+<% elsif(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
   <body class="fixed-header no-header">
 <% elsif(params[:controller] == 'welcome' && params[:action] == 'social') %>
   <body class="fixed-header no-header">
@@ -50,13 +55,26 @@
       <% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
 
       <% elsif(params[:controller] == 'welcome' && params[:action] == 'social') %>
+
+      <% elsif(params[:controller] == 'welcome' && params[:action] == 'email') %>
       
       <% else %>
         <%= render "shared/footer" %>
       <% end %>
     </div>
+    <% if(params[:controller] == 'welcome' && params[:action] == 'calender') %>
+        <%= render "shared/calendar_events" %>
+      <% end %>
   </div>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
+   <!--[if lte IE 9]><!-->
+        <%= javascript_include_tag 'isotope.pkgd.min.js'%>
+        <%= javascript_include_tag 'masonry-horizontal.js'%>
+    <!--<![endif]-->
+  <% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
+    <%= javascript_include_tag 'pages.calendar.min.js'%>
+    <%= javascript_include_tag 'calendar.js'%>
+  <% end %>
   <%= yield :scripts %>
 </body>
 </html>
