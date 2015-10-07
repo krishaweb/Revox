@@ -16,7 +16,28 @@
               </div>
             <% end %>    
           <% end %>
-				<p>Hi! This is Rovex website.</p>
+				  <div class="col-md-3">
+            <div class="widget-10 panel no-border bg-white no-margin widget-loader-bar">
+              <div class="panel-heading top-left top-right ">
+                <div class="panel-title text-black hint-text">
+                  <span class="font-montserrat fs-11 all-caps">Users 
+                  </span>
+                </div>
+              </div>
+              <div class="panel-body p-t-40">
+                <div class="row">
+                  <div class="col-sm-12">
+                  <h4 class="no-margin p-b-5 text-danger semi-bold"><%= @total_user %></h4>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+              <div class="p-t-10 full-width">
+                <a href="<%= users_path %>"><span class="hint-text small">View All</span></a>
+              </div>
+            </div>
+</div>
+ 
+</div>
 			</div>
 		</div>
 	</div>
