@@ -1,55 +1,26 @@
 <%= content_for :title, "Calendar" %>
-<!-- START MOBILE CONTROLS -->
-      <!-- LEFT SIDE -->
-      <div class="pull-up overlayer visible-sm visible-xs">
-        <!-- START ACTION BAR -->
-        <div class="p-l-5 p-t-15">
-          <button class="btn-link toggle-sidebar" data-toggle="sidebar">
-            <span class="icon-set menu-hambuger"></span>
-          </button>
-        </div>
-        <!-- END ACTION BAR -->
+<div class="content full-width full-height">
+  <!-- START CALENDAR -->
+  <div class="calendar">
+    <!-- START CALENDAR HEADER-->
+    <div class="calendar-header">
+      <div class="drager">
+        <div class="years" id="years"></div>
       </div>
-      <!-- RIGHT SIDE -->
-      <div class="top-right overlayer visible-sm visible-xs">
-        <!-- START ACTION BAR -->
-        <div class="p-r-5 p-t-15">
-          <button class="btn-link" data-toggle="quickview" data-toggle-element="#quickview">
-            <span class="icon-set menu-hambuger-plus"></span>
-          </button>
-        </div>
-        <!-- END ACTION BAR -->
+    </div>
+    <div class="options">
+      <div class="months-drager drager">
+        <div class="months" id="months"></div>
       </div>
-      <!-- END MOBILE CONTROLS -->
-      <!-- START PAGE CONTENT WRAPPER -->
-      <div class="page-content-wrapper full-height">
-        <!-- START PAGE CONTENT -->
-        <div class="content full-width full-height">
-          <!-- START CALENDAR -->
-          <div class="calendar">
-            <!-- START CALENDAR HEADER-->
-            <div class="calendar-header">
-              <div class="drager">
-                <div class="years" id="years"></div>
-              </div>
-            </div>
-            <div class="options">
-              <div class="months-drager drager">
-                <div class="months" id="months"></div>
-              </div>
-              <h4 class="semi-bold date" id="currentDate">&amp;</h4>
-              <div class="drager week-dragger">
-                <div class="weeks-wrapper" id="weeks-wrapper">
-                </div>
-              </div>
-            </div>
-            <!-- START CALENDAR GRID-->
-            <div id="calendar" class="calendar-container">
-            </div>
-            <!-- END CALENDAR GRID-->
-          </div>
-          <!-- END CALENDAR -->
-        </div>
-        <!-- END PAGE CONTENT -->
+      <h4 class="semi-bold date" id="currentDate">&amp;</h4>
+      <div class="drager week-dragger">
+        <div class="weeks-wrapper" id="weeks-wrapper"></div>
       </div>
-      <!-- END PAGE CONTENT WRAPPER -->
+    </div>
+    <!-- START CALENDAR GRID-->
+    <div id="calendar" class="calendar-container">
+    </div>
+  <!-- END CALENDAR GRID-->
+  </div>
+<!-- END CALENDAR -->
+</div>

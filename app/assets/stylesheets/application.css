@@ -9,7 +9,6 @@
  *= require bootstrap3-wysihtml5.min.css
  *= require jquery.menuclipper
  *= require component
- *= require themes/calendar
  *= require jquery.dataTables
  *= require	dataTables.fixedColumns.min
  *= require datatables.responsive
@@ -18,6 +17,7 @@
  *= require datepicker3
  *= require MetroJs
  *= require pages-icons
+ *= require themes/calendar
  *= require pages
  *= require_self
  */

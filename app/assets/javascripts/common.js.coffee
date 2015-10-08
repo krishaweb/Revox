@@ -1,3 +1,6 @@
+$(document).on 'ajax:before', '#form_user', (e, res)->
+  $(".add_user_loader").show()
+
 $(document).on 'ajax:complete', '#form_user', (e, res)->
   if res.status == 422
   	if res.responseJSON && res.responseJSON['fname']
@@ -20,8 +23,9 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
   		$('span#password_confirmation_error').html res.responseJSON['password_confirmation'][0]
   	else
   		$('span#password_confirmation_error').html ' '
+    $(".add_user_loader").hide()
   else if res.status == 201
-    alert "User has been saved successfully."
+    $(".add_user_loader").hide()
     $('#user_fname').val ''
     $('span#fname_error').html ' '
     $('#user_lname').val ''
@@ -32,10 +36,10 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
     $('span#password_error').html ' '
     $('#user_password_confirmation').val ''
     $('span#password_confirmation_error').html ' '
-    $("#addNewAppModal").modal 'hide'
-    window.location.reload();
+    $('.form-user').hide()
+    $('#user-success').show()
   else if res.status == 200
-    alert "User has been saved successfully."
+    $(".add_user_loader").hide()
     $('#user_fname').val ''
     $('span#fname_error').html ' '
     $('#user_lname').val ''
@@ -46,6 +50,8 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
     $('span#password_error').html ' '
     $('#user_password_confirmation').val ''
     $('span#password_confirmation_error').html ' '
-    $("#addNewAppModal").modal 'hide'
-    window.location.reload()
+    $('.form-user').hide()
+    $('#user-success').show()
   else
+
+

@@ -2,6 +2,7 @@
 //= require jquery
 //= require modernizr.custom
 //= require jquery_ujs
+//= require jquery-ui.min
 //= require jquery.remotipart
 //= require bootstrap.min
 //= require jquery-easy
@@ -13,15 +14,15 @@
 //= require select2.min
 //= require classie
 //= require switchery.min
+//= require jquery.ui.touch-punch.min
+//= require moment.min
+//= require moment-with-locales.min
+//= require hammer.min
 //= require bootstrap3-wysihtml5.all.min
 //= require jquery.menuclipper
 //= require imagesloaded.pkgd.min
 //= require isotope.pkgd.min
 //= require stepsForm.js
-//= require jquery.ui.touch-punch.min
-//= require moment.min
-//= require moment-with-locales.min
-//= require hammer.min
 //= require jquery.dataTables.min
 //= require dataTables.tableTools.min
 //= require jquery-datatable-bootstrap
@@ -45,7 +46,6 @@
 //= require pages.email
 //= require pages.social.min
 //= require datatables
-//= require scripts
 //= require common
 
 

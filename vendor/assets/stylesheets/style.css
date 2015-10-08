@@ -22,3 +22,43 @@ span.help-block{
 .header .dropdown.pull-right .dropdown-menu > li > a{
 	white-space: inherit;
 }
+.sidebar-user-name{
+	width: auto;
+	display: table;
+	margin:10px auto 0;
+	color: #fff;
+}
+.sidebar-user-name a span{
+	color: #FFF;
+	}
+.sidebar-user-name  img{
+	border-radius: 100%;
+	margin-right:20px;
+}
+.calendar .calendar-container .week-view .tble{
+	display: table !important;	
+}
+
+.add_user_loader{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	background-color: #FFF;
+	background-color: rgba(255,255,255,0.5);
+	z-index: 10;
+}
+
+.add_user_loader .wrap{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 100px;
+}

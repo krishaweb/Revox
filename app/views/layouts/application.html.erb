@@ -30,23 +30,44 @@
   <%= render "shared/script" %>
 </head>
 <% if(params[:controller] == 'welcome' && params[:action] == 'email') %>
-  <body class="fixed-header   ">
+  <body class="fixed-header menu-pin">
 <% elsif(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
-  <body class="fixed-header no-header">
+  <body class="fixed-header menu-pin no-header">
 <% elsif(params[:controller] == 'welcome' && params[:action] == 'social') %>
-  <body class="fixed-header no-header">
+  <body class="fixed-header menu-pin no-header">
 <% else %>
-  <body class="fixed-header  dashboard ">
+  <body class="fixed-header menu-pin dashboard ">
 <% end %>
   <%= render "shared/sidebar" %>
 <% if(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
   <div class="page-container bg-white full-height">
+  <div class="pull-up overlayer visible-sm visible-xs">
+        <!-- START ACTION BAR -->
+        <div class="p-l-5 p-t-15">
+          <button class="btn-link toggle-sidebar" data-toggle="sidebar">
+            <span class="icon-set menu-hambuger"></span>
+          </button>
+        </div>
+        <!-- END ACTION BAR -->
+      </div>
+      <!-- RIGHT SIDE -->
+      <div class="top-right overlayer visible-sm visible-xs">
+        <!-- START ACTION BAR -->
+        <div class="p-r-5 p-t-15">
+          <button class="btn-link" data-toggle="quickview" data-toggle-element="#quickview">
+            <span class="icon-set menu-hambuger-plus"></span>
+          </button>
+        </div>
+        <!-- END ACTION BAR -->
+      </div>
 <% else %>
   <div class="page-container">
   <%= render "shared/header" %> 
 <% end %>
   
     <% if(params[:controller] == 'welcome' && params[:action] == 'email') %>
+      <div class="page-content-wrapper full-height">
+    <% elsif(params[:controller] == 'welcome' && params[:action] == 'calendar') %>
       <div class="page-content-wrapper full-height">
     <% else %>
       <div class="page-content-wrapper">
@@ -62,9 +83,9 @@
         <%= render "shared/footer" %>
       <% end %>
     </div>
-    <% if(params[:controller] == 'welcome' && params[:action] == 'calender') %>
-        <%= render "shared/calendar_events" %>
-      <% end %>
+    
+      <%= render "shared/calendar_events" %>
+     
   </div>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
    <!--[if lte IE 9]><!-->
@@ -75,6 +96,7 @@
     <%= javascript_include_tag 'pages.calendar.min.js'%>
     <%= javascript_include_tag 'calendar.js'%>
   <% end %>
+  <%= javascript_include_tag 'scripts.js'%>
   <%= yield :scripts %>
 </body>
 </html>

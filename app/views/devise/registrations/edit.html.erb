@@ -62,7 +62,7 @@
                 <%= f.input_field :current_password, as: :password, hint: "we need your current password to confirm your changes", required: false, label: false, class: "form-control" %>
                 <span class="help-block"><%= @user.errors[:current_password].first %></span>
               </div>
-              <%= f.button :submit, "Update", class: 'btn btn-primary btn-cons m-t-10' %>
+              <%= f.button :submit, "Update", class: 'btn btn-primary btn-cons' %>
               <%= link_to "Close", root_path, class: 'btn btn-cons' %>
             <% end %>
           </div>
