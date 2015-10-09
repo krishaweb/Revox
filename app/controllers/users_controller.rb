@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @users = User.new user_data
     if @users.save
       if remotipart_submitted? 

@@ -23,6 +23,10 @@ $(document).on 'ajax:complete', '#form_user', (e, res)->
   		$('span#password_confirmation_error').html res.responseJSON['password_confirmation'][0]
   	else
   		$('span#password_confirmation_error').html ' '
+    if res.responseJSON['image']
+      $('span#image_error').html res.responseJSON['image']
+    else
+      $('span#image_error').html ' '
     $(".add_user_loader").hide()
   else if res.status == 201
     $(".add_user_loader").hide()

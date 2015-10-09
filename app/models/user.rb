@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates :lname, presence: {:message => "Please enter your last name"}
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   validates :email, uniqueness: {:message => "This email is already used"}, on: :create
-  # validates :image, presence: {:message => "Please select image"}
+  validates :image, presence: {:message => "Please select image"}
 
   def full_name
     fullname = "#{lname}, #{fname}"
