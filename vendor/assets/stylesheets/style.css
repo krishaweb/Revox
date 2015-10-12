@@ -70,6 +70,14 @@ span.help-block{
     padding: 6px 15px;
     color: #FFF;
 }
+.panel-body a#pickfiles{
+    margin: 20px 0px;
+    background-color: #4C4A49;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    padding: 6px 15px;
+    color: #FFF;
+}
 .modal-backdrop.in{z-index: -12;}
 .scroll-wrapper > .scroll-element.scroll-y{visibility: visible;}
 @media (max-width:767px){

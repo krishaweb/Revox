@@ -44,7 +44,8 @@
                   <%= f.check_box :remove_image %>
                   Remove Image
                 </label>
-                <%= f.file_field :image, required: false, label: false %>
+                <div class="filelist" id="filelist"></div>
+                <a id="pickfiles" href="javascript:;">Upload Photo</a>                       
                 <%= f.hidden_field :image_cache %>
               </div>               
               <div class="form-group form-group-default">
@@ -72,3 +73,4 @@
     </div>
   </div>
 </div>  
+
