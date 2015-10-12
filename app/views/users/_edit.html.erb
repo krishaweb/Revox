@@ -38,6 +38,9 @@
                       <div class="form-group form-group-default">
                         <label>Email</label>
                         <%= f.text_field :email, label: false, class: 'form-control' %>
+                        <% if @users.pending_reconfirmation? %>
+                          <p>Currently waiting confirmation for: <%= @users.unconfirmed_email %></p>
+                        <% end %>
                         <span class="help-block" id="email_error"></span>
                       </div>
                     </div>
@@ -46,7 +49,13 @@
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>Image</label>
-                        <%= f.file_field :image, label: false, class: 'form-control' %>
+                        <p><%= image_tag @users.image.url(:thumb) %></p>
+                        <label>
+                          <%= f.check_box :remove_image %>
+                          Remove Image
+                        </label>
+                        <div class="filelist" id="filelist"></div>
+                        <a id="pickfiles" href="#">Upload Photo</a>                        
                         <%= f.hidden_field :image_cache %>
                         <span class="help-block" id="image_error"></span>
                       </div>
@@ -85,3 +94,43 @@
 </div>
 <!-- /.modal-dialog -->
      
+<%= javascript_include_tag "plupload.full.min.js" %>
+<script type="text/javascript">
+  $(function(){
+    var uploader = new plupload.Uploader({
+      runtimes : "html5",
+      browse_button : 'pickfiles',
+      max_file_size : '10mb',
+      url : '/users',
+      multipart: true,
+      urlstream_upload: true,
+      file_data_name: 'user[image]',
+      multipart_params: {
+       authenticity_token: '<%= form_authenticity_token %>',
+       plupload: true
+      }
+    });
+
+    uploader.bind('FilesAdded', function(up, files) {
+      $.each(files, function(i, file) {
+        $('#filelist').append(
+          '<div id="' + file.id + '">' +
+          'File: ' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+          '</div>'
+          );
+        });
+        uploader.start();        
+      });
+
+    uploader.bind('UploadProgress', function(up, file) {
+      $('#' + file.id + " b").html(file.percent + "%");
+    });
+
+    uploader.bind('FileUploaded', function(up, file,res) {
+      console.log(res);
+      $('#user_image_cache').val(res.response); 
+    });
+
+    uploader.init();
+  });
+</script>

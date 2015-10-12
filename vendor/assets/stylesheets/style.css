@@ -62,3 +62,29 @@ span.help-block{
 	margin: auto;
 	height: 100px;
 }
+.modal-body a#pickfiles{
+    margin: 20px 0px;
+    background-color: #4C4A49;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    padding: 6px 15px;
+    color: #FFF;
+}
+.modal-backdrop.in{z-index: -12;}
+.scroll-wrapper > .scroll-element.scroll-y{visibility: visible;}
+@media (max-width:767px){
+.pull-right a.btn-cons{min-width: 110px !important;}
+.panel .panel-heading .panel-title{text-align: center !important;overflow: auto !important;margin: 0 0 10px 0 !important;display: block !important;}
+.modal-footer input.btn-cons.btn{float: left;min-width: 90px !important;padding: 8px 0 !important}
+.modal-footer a.btn-cons.btn{float: left;min-width: 90px !important;padding: 8px 0 !important}
+}
+@media (min-width:768px) and (max-width:1169px){
+.pull-right .col-lg-7.col-md-7.col-sm-7.col-xs-7, .pull-right .col-lg-5.col-md-5.col-sm-5.col-xs-5{padding: 0 !important}
+.pull-right{text-align: right;}
+.input-group input.form-control.pull-right{text-align: left;}
+/*.page-content-wrapper .content{padding-left: 0 !important;}*/
+}
+
+@media (min-width:990px) and (max-width:1170px){
+/*.page-content-wrapper .content{padding-left: 250px !important;}	*/
+}

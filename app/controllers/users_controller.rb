@@ -15,42 +15,30 @@ class UsersController < ApplicationController
   end
 
   def create
-
     @users = User.new user_data
     if @users.save
-      if remotipart_submitted? 
-        head :created
-      else
-        head :created
-      end
+      head :created
     else
-      render json: @users.errors, status: :unprocessable_entity
+      if params[:plupload]
+        render text: @users.image_cache
+      else
+        render json: @users.errors, status: :unprocessable_entity
+      end
     end
   end
-
-  # def add_user
-  #   @users = User.new user_data
-  #   if @users.save
-  #     if remotipart_submitted? 
-  #       head :created
-  #     end
-  #   else
-  #     render json: @users.errors, status: :unprocessable_entity
-  #   end
-  # end
   
   def edit
   end
 
   def update
     if @users.update user_data
-      if remotipart_submitted? 
-        head :created
-      else
-        head :created
-      end
+      head :created
     else
-      render json: @users.errors, status: :unprocessable_entity
+      if params[:plupload]
+        render text: @users.image_cache
+      else
+        render json: @users.errors, status: :unprocessable_entity
+      end
     end
   end
 
