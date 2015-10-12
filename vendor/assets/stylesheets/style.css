@@ -88,3 +88,8 @@ span.help-block{
 @media (min-width:990px) and (max-width:1170px){
 /*.page-content-wrapper .content{padding-left: 250px !important;}	*/
 }
+
+
+@media (min-width:980px) and (max-width:980px){
+body.menu-pin .page-container .page-content-wrapper .content{padding-left: 0px !important;}
+}
