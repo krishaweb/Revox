@@ -86,10 +86,9 @@
         <%= render "shared/footer" %>
       <% end %>
     </div>
-    
-      <%= render "shared/calendar_events" %>
-     
   </div>
+  <%= render "shared/quickview" %>
+  <%= render "shared/calendar_events" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
   <% if devise_controller? && resource_name == :user && action_name == "edit" %>
     <%= javascript_include_tag "plupload.full.min.js" %>
