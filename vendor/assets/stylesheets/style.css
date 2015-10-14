@@ -3,6 +3,9 @@
 * Override Pages default styles or create your own styles here
 
 */
+.header{
+	z-index: 9999 !important;
+}
 span.help-block{
 	color: #933432;
 }
