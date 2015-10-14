@@ -44,11 +44,7 @@
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <div class="sidebar-user-name">
           <a href="<%= edit_user_registration_path %>">
-          <% if current_user.image? %>
-            <img src="<%= current_user.image.url() %>" alt="" data-src="<%= current_user.image.url() %>" data-src-retina="<%= current_user.image.url() %>" width="32" height="32">
-          <% else %>
-            <img src="/assets/<%= current_user.image.url() %>" alt="" data-src="/assets/<%= current_user.image.url() %>" data-src-retina="/assets/<%= current_user.image.url() %>" width="32" height="32">
-          <% end %>
+            <img src="<%= current_user.image.url() %>" onerror="this.onerror=null;this.src='<%= image_path("blank.png") %>';" alt="Thumb h2x" data-src="<%= current_user.image.url() %>" data-src-retina="<%= current_user.image.url() %>" width="32" height="32">
             <div class="pull-right p-r-10 p-t-10 fs-16 font-heading">
               <span class="semi-bold"><%= current_user.fname.titleize %> <%= current_user.lname.titleize if current_user.lname? %></span>
             </div>

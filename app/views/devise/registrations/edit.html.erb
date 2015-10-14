@@ -39,7 +39,9 @@
               </div>
               <div class="form-group form-group-default">
                 <label>Image</label>
-                <p><%= image_tag @user.image.url(:thumb) %></p>
+                <p>
+                  <img src="<%= @user.image.url(:thumb) %>" onerror="this.onerror=null;this.src='<%= image_path("blank.png") %>'" alt="Thumb h2x" height ="70px" width ="70px">
+                </p>
                 <div class="filelist" id="filelist"></div>
                 <a id="pickfiles" href="javascript:;">Upload Photo</a> 
                 <p> </p>                

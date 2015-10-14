@@ -4,7 +4,9 @@
       <p><%= u.fname.titleize %> <%= u.lname.titleize if u.lname? %></p>
     </td>
     <td class="v-align-middle">
-      <p><%= image_tag u.image.url(:thumb) %></p>
+      <p>
+        <img src="<%= u.image.url(:thumb) %>" onerror="this.onerror=null;this.src='<%= image_path("blank.png") %>'" alt="Thumb h2x" height ="70px" width ="70px">
+      </p>
     </td>
     <td class="v-align-middle">
       <p><%= u.email %></p>
