@@ -50,10 +50,6 @@
                       <div class="form-group form-group-default">
                         <label>Image</label>
                         <p><%= image_tag @users.image.url(:thumb) %></p>
-                        <label>
-                          <%= f.check_box :remove_image %>
-                          Remove Image
-                        </label>
                         <div class="filelist" id="filelist"></div>
                         <a id="pickfiles" href="javascript:;">Upload Photo</a>                        
                         <%= f.hidden_field :image_cache %>

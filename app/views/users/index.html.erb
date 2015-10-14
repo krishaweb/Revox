@@ -43,9 +43,11 @@
             </div>   
             <% end %>
           </div>
-          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-            <%= link_to ("<i class='fa fa-plus'></i> Add User").html_safe, new_user_path, remote: true, class: "btn btn-primary btn-cons btn-adduser" %>
-          </div>  
+          <% if current_user.admin? %>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+              <%= link_to ("<i class='fa fa-plus'></i> Add User").html_safe, new_user_path, remote: true, class: "btn btn-primary btn-cons btn-adduser" %>
+            </div> 
+          <% end %> 
           </div>  
           </div>                
         </div>
@@ -62,7 +64,9 @@
               <th>Name</th>
               <th class="no-sort">Image</th>
               <th>Email</th>
-              <th class="no-sort">Actions</th>
+              <% if current_user.admin? %>
+                <th class="no-sort">Actions</th>
+              <% end %>
             </tr>
           </thead>
           <tbody class="user-index">

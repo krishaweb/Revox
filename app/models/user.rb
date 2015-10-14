@@ -13,6 +13,14 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: {:message => "This email is already used"}, on: :create
   validates :image, presence: {:message => "Please select image"}
 
+  extend Enumerize
+  enumerize :role, in: [:member, :admin], default: :member, predicates: true
+
+  ROLES = {
+    "Admin"   => "admin",
+    "Member"  => "member"
+  }
+
   def full_name
     fullname = "#{lname}, #{fname}"
   end

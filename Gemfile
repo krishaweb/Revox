@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem "figaro", "~> 1.1.1"
+gem 'enumerize', '~> 0.8.0'
 gem "devise", "~> 3.2.4"
 gem "cancan", "~> 1.6.10"
 gem 'simple_form', '~> 3.1.0.rc1'

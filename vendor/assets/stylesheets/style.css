@@ -69,6 +69,7 @@ span.help-block{
     border-radius: 3px;
     padding: 6px 15px;
     color: #FFF;
+    top: 5px;
 }
 .panel-body a#pickfiles{
     margin: 20px 0px;
@@ -77,6 +78,7 @@ span.help-block{
     border-radius: 3px;
     padding: 6px 15px;
     color: #FFF;
+	top: 5px;
 }
 .register-container a#pickfiles{
 	margin: 20px 0px;
@@ -85,20 +87,27 @@ span.help-block{
     border-radius: 3px;
     padding: 6px 15px;
     color: #FFF;
+    top: 5px;
 }
-.modal-backdrop.in{z-index: -12;}
 .scroll-wrapper > .scroll-element.scroll-y{visibility: visible;}
 @media (max-width:767px){
 .pull-right a.btn-cons{min-width: 110px !important;}
 .panel .panel-heading .panel-title{text-align: center !important;overflow: auto !important;margin: 0 0 10px 0 !important;display: block !important;}
 .modal-footer input.btn-cons.btn{float: left;min-width: 90px !important;padding: 8px 0 !important}
 .modal-footer a.btn-cons.btn{float: left;min-width: 90px !important;padding: 8px 0 !important}
+.modal-backdrop.in{z-index: -12;}
 }
 @media (min-width:768px) and (max-width:1169px){
 .pull-right .col-lg-7.col-md-7.col-sm-7.col-xs-7, .pull-right .col-lg-5.col-md-5.col-sm-5.col-xs-5{padding: 0 !important}
 .pull-right{text-align: right;}
 .input-group input.form-control.pull-right{text-align: left;}
 /*.page-content-wrapper .content{padding-left: 0 !important;}*/
+}
+
+@media(max-width:990px){
+.page-content-wrapper{z-index: 1235;}
+.modal.fade.stick-up.in .modal-dialog{z-index: 12313;}
+.modal-backdrop.in{display: none;}
 }
 
 @media (min-width:990px) and (max-width:1170px){
