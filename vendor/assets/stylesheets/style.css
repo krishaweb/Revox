@@ -3,9 +3,6 @@
 * Override Pages default styles or create your own styles here
 
 */
-.header{
-	z-index: 9999 !important;
-}
 span.help-block{
 	color: #933432;
 }
@@ -111,6 +108,7 @@ span.help-block{
 .page-content-wrapper{z-index: 1235;}
 .modal.fade.stick-up.in .modal-dialog{z-index: 12313;}
 .modal-backdrop.in{display: none;}
+.header {z-index: 9999 !important;}
 }
 
 @media (min-width:990px) and (max-width:1170px){
