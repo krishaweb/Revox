@@ -89,19 +89,33 @@ span.help-block{
     color: #FFF;
     top: 5px;
 }
+#filter_form .input-group .form-control{
+	width: 200px;
+}
 .scroll-wrapper > .scroll-element.scroll-y{visibility: visible;}
 @media (max-width:767px){
-.pull-right a.btn-cons{min-width: 110px !important;}
+.pull-right{text-align: center;}
+.pull-right a.btn-cons{min-width: 110px !important;margin: 10px 0 0;margin: 10px auto 0;display: inline-block;}
 .panel .panel-heading .panel-title{text-align: center !important;overflow: auto !important;margin: 0 0 10px 0 !important;display: block !important;}
 .modal-footer input.btn-cons.btn{float: left;min-width: 90px !important;padding: 8px 0 !important}
 .modal-footer a.btn-cons.btn{float: left;min-width: 90px !important;padding: 8px 0 !important}
 .modal-backdrop.in{z-index: -12;}
+.panel-heading .pull-right{float: none !important;}
+#filter_form .input-group .form-control{width: 100%;}
+.calendar .calendar-container .week-view .tble{width: calc(100% - 50px) !important;}
+.social ul.list-unstyled li{display: inline-block !important;}
+.dataTables_wrapper .dataTables_info, .dataTables_paginate.paging_bootstrap.pagination{text-align: center !important;}
 }
 @media (min-width:768px) and (max-width:1169px){
 .pull-right .col-lg-7.col-md-7.col-sm-7.col-xs-7, .pull-right .col-lg-5.col-md-5.col-sm-5.col-xs-5{padding: 0 !important}
 .pull-right{text-align: right;}
 .input-group input.form-control.pull-right{text-align: left;}
 /*.page-content-wrapper .content{padding-left: 0 !important;}*/
+.pull-up{z-index: 120000 !important;}
+.top-right{z-index: 120000 !important;}
+.calendar .calendar-container .week-view .tble{width: calc(100% - 50px) !important;}
+.login-wrapper .bg-caption{width: 290px !important;}
+.bg-caption h2{font-size: 26px;line-height: 35px;}
 }
 
 @media(max-width:990px){

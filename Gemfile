@@ -35,6 +35,7 @@ gem "carrierwave", "~> 0.10.0"
 gem "mini_magick", "~> 3.7.0"
 gem 'remotipart', '~> 1.2'
 gem 'plupload-rails'
+gem 'turbo-sprockets-rails3'
 
 group :production do
   gem 'rails_12factor'
